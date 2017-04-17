@@ -2,7 +2,7 @@
 # Lab 2
 
 # Read in mydata (replace this path with your own path)
-dpath = 'D:/Documents/Work/UCD/TAing/PSC204d_Spring2012/Data/CSV/ch1labs.csv'
+dpath = 'ch1labs.csv'
 mydat <- read.csv(dpath, header=TRUE, sep = ',')  # if in .csv
 
 # CRITICAL: make sure categorical variables are classed as factors
@@ -22,7 +22,7 @@ complete.cases(mydat)
 	# returns vector indicating which values are complete, obviously all records are complete
 	
 # Create a duplicate dataset with missing values
-duplicate = mydata
+duplicate = mydat
 duplicate[29,2] = NA # designate the 29th row, 2nd column as NA
 
 complete.cases(duplicate) # complete.cases may be unwieldy with large data sets
@@ -54,4 +54,5 @@ summary(fit2)
 
 # model assumptions diagnostics
 plot(fit1) 									   # QQ normality
+
 bartlett.test(attended ~ group, data = mydat)  # homoscedasticity, assumption of anova that the variance in each group is the same
